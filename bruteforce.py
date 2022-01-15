@@ -1,22 +1,21 @@
-import itertools
+#import itertools
 
-문자열 = '012345689'  # 패스워드로 쓸 수 있는 숫자를 뜻함
+import requests
 
-# for i in 문자열:
-#   for j in 문자열:
-#      print(i, j)
-# 두 자리
+로그인패킷={
+    'id' : 'krystal',
+    'pw' : '1234', #마지막에도 콤마 잊지말기
+}
 
-# for i in 문자열:
-#   for j in 문자열:
-#      for k in 문자열:
-#         print(i, j, k)
-# 세 자리
 
-# 자동으로 할 수 있는 라이브러리가 itertools이므로 이를 사용하면
+address = requests.post(f'http://127.0.0.1:8080/',data=로그인패킷) # local host
+# 응답한 값이 들어간 address (response라는 변수로 보통 많이 씀)
 
-for 패스워드길이 in range(1, 5):
-    for password in itertools.product(문자열, repeat=패스워드길이):
+#문자열 = '012345689'  # 패스워드로 쓸 수 있는 숫자를 뜻함
+
+#for 패스워드길이 in range(1, 5):
+#    for password in itertools.product(문자열, repeat=패스워드길이):
         # 앞의 for문과 같은 코드임
         # print(password)
-        print(''.join(password))
+#       print(''.join(password))
+
